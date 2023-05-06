@@ -38,11 +38,11 @@ function enableCORS(expressInstance) {
     });
   }
 
-  enableStaticFileServer(app, process.env.uploadUrl, "/api/static");
+  // enableStaticFileServer(app, process.env.uploadUrl, "/api/static");
 
-  function enableStaticFileServer(expressInstance, folderName, route) {
-    app.use(route, express.static(path.join(__dirname, folderName)));
-  }
+  // function enableStaticFileServer(expressInstance, folderName, route) {
+  //   app.use(route, express.static(path.join(__dirname, folderName)));
+  // }
 
 let blogRoute = require("./src/routes/blog.route")
 let testimonialRoute = require("./src/routes/testimonial.route")
@@ -50,7 +50,7 @@ let contactRoute = require("./src/routes/contact.route")
 let logoRoute = require("./src/routes/logo.route")
 let profileRoute = require("./src/routes/profile.route")
 let userRoute = require("./src/routes/user.route")
-let uploadRoute = require("./upload.routes")
+// let uploadRoute = require("./upload.routes")
 let seminarRoute = require("./src/routes/seminar.route")
 let eventRoute = require("./src/routes/event.route")
 let workshopRoute = require("./src/routes/workshop.route")
@@ -60,7 +60,7 @@ let examTableRoute = require("./src/routes/examTable.route")
 app.use("/api/v1/user", userRoute)
 app.use("/api/v1/blog", blogRoute)
 app.use("/api/v1/testimonial", testimonialRoute)
-app.use("/api/v1/upload", uploadRoute)
+// app.use("/api/v1/upload", uploadRoute)
 app.use("/api/v1/contact", contactRoute)
 app.use("/api/v1/logo", logoRoute)
 app.use("/api/v1/profile", profileRoute)
