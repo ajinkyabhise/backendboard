@@ -5,7 +5,7 @@ let path = require('path');
 let bodyParser = require('body-parser');
 let app = express();
 require("dotenv").config();
-
+let PORT = "8080"
 app.get("/", function(req, res){
     res.send("<h1>Welcome to express app<h1>")
 })
@@ -13,7 +13,7 @@ app.get("/", function(req, res){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.DB_URL)
+mongoose.connect('mongodb+srv://ajinkyabhise1226:9ixJ4CDdLx2u65bA@cluster0.oo8pood.mongodb.net/?retryWrites=true&w=majority')
 .then(()=>{
     console.log("Connected to MongoDB")
 }).catch(err =>{
@@ -71,6 +71,6 @@ app.use("/api/v1/holiday", holidayRoute)
 app.use("/api/v1/examTable", examTableRoute)
 
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`Server is listening on http://localhost:${process.env.PORT}`);
+app.listen(PORT, ()=>{
+    console.log(`Server is listening on http://localhost:${PORT}`);
 })
